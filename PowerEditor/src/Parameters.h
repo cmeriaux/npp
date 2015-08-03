@@ -1383,6 +1383,7 @@ public:
 
 	void writeUserDefinedLang();
 	void writeShortcuts();
+	void writeDefaultShortcuts();
 	void writeSession(const Session & session, const TCHAR *fileName = NULL);
 	bool writeFindHistory();
 
@@ -1460,6 +1461,7 @@ public:
 	generic_string getNppPath() const {return _nppPath;};
 	generic_string getContextMenuPath() const {return _contextMenuPath;};
 	generic_string getShortcutsPath() const {return _shortcutsPath;};
+	generic_string getDefaultShortcutsPath() const {return _defaultShortcutsPath;};
 	const TCHAR * getAppDataNppDir() const {return _appdataNppDir.c_str();};
 	const TCHAR * getWorkingDir() const {return _currentDirectory.c_str();};
 	const TCHAR * getWorkSpaceFilePath(int i) const {
@@ -1580,7 +1582,7 @@ private:
 	static NppParameters *_pSelf;
 
 	TiXmlDocument *_pXmlDoc, *_pXmlUserDoc, *_pXmlUserStylerDoc, *_pXmlUserLangDoc,\
-		*_pXmlToolIconsDoc, *_pXmlShortcutDoc, *_pXmlSessionDoc,\
+		*_pXmlToolIconsDoc, *_pXmlShortcutDoc, *_pXmlDefaultShortcutDoc, *_pXmlSessionDoc,\
 		*_pXmlBlacklistDoc;
 
 	TiXmlDocument *_importedULD[NB_MAX_IMPORTED_UDL];
@@ -1654,6 +1656,7 @@ private:
 	Session _session;
 
 	generic_string _shortcutsPath;
+	generic_string _defaultShortcutsPath;
 	generic_string _contextMenuPath;
 	generic_string _sessionPath;
 	generic_string _blacklistPath;
