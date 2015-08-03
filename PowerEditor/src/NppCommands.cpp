@@ -2288,6 +2288,16 @@ void Notepad_plus::command(int id)
 			break;
 		}
 
+		case IDM_SETTING_EXPORTSHORTCUTS :
+		{
+			NppParameters *pNppParams = NppParameters::getInstance();
+			pNppParams->writeDefaultShortcuts();
+
+			BufferID bufID = doOpen((pNppParams->getDefaultShortcutsPath()).c_str());
+			switchToFile(bufID);
+			break;
+		}
+
         case IDM_VIEW_GOTO_ANOTHER_VIEW:
             docGotoAnotherEditView(TransferMove);
 			checkSyncState();
